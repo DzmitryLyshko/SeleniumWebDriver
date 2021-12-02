@@ -1,9 +1,8 @@
 const {Builder, By, until} = require ('selenium-webdriver');
 const {expect} = require('chai');
 const PastebinPage = require('../lib/pastebin_page');
-const { Driver } = require('selenium-webdriver/chrome');
 const pastebinPage = new PastebinPage();
-/*
+
 describe('pastebin page scenarios', function() {
 
     newPasteText = 'Hello from WebDriver';
@@ -49,19 +48,25 @@ describe('pastebin page scenarios', function() {
     });
 
     it('Page title should be equal to Paste name', async function() {
-        expect(await pastebinPage.getPageTitle()).to.be.equal(pasteNameText2 + ' - Pastebin.com');
+		await pastebinPage.driver.wait(until.titleIs('how to gain dominance among developers  - Pastebin.com'), 3000);
+        let text = pastebinPage.getPageTitle();
+        expect(text).to.be.equal(pasteNameText2 + ' - Pastebin.com');
     });
 
     it('Syntax should be highlighted for Bash', async function() {
-        expect(await pastebinPage.syntaxHighlighting()).to.be.equal('Bash');
+        expect(pastebinPage.syntaxHighlighting()).to.deep.equal('Bash');
     });
 
     it('Code should be equal to that we have entered to the New Paste', async function() {
-        expect(await pastebinPage.pasteData()).to.be.equal(newPasteText2);
+        expect(pastebinPage.pasteData()).to.deep.equal(newPasteText2);
     });
 
     after(async function() {
-        await pastebinPage.close();
+        let expectedPastebinPage = pastebinPage.getPageTitle();
+        await console.log(typeof expectedPastebinPage);
+        await console.log(typeof pastebinPage.getPageTitle());
+        await console.log(pastebinPage.pasteData());
+        // await pastebinPage.close();
     });
 })
-*/
+

@@ -1,0 +1,73 @@
+    async syntaxHighlighting () {
+        await this.driver.wait(until.elementLocated(By.xpath('(//a[@class="btn -small h_800"])[1]')));
+        await this.driver.findElement(By.xpath('(//a[@class="btn -small h_800"])[1]')).getText().then(function(text) {
+            return text;
+        });
+    } 
+    async getPageTitle () {
+        await this.driver.getTitle().then(function(title) {
+            return title;
+        });
+    }
+    async pasteData () {
+        await this.driver.wait(until.elementLocated(By.css('.textarea')));
+        await this.driver.findElement(By.css('.textarea')).getText().then(function(text) {
+            return text;
+        });
+
+Тип объектов - объект, а сам объект представляет собой 		Promise { <pending> } 
+
+
+3 failing
+
+  1) pastebin page scenarios
+       Page title should be equal to Paste name:
+
+      AssertionError: expected '[object Promise]' to deeply equal 'how to gain dominance among developers - Pastebin.com'
+      + expected - actual
+
+      -[object Promise]
+      +how to gain dominance among developers - Pastebin.com
+
+      at Context.<anonymous> (test\test2.js:51:61)
+      at processImmediate (internal/timers.js:464:21)
+
+  2) pastebin page scenarios
+       Syntax should be highlighted for Bash:
+
+      AssertionError: expected '[object Promise]' to deeply equal 'Bash'
+      + expected - actual
+
+      -[object Promise]
+      +Bash
+
+      at Context.<anonymous> (test\test2.js:55:67)
+      at processImmediate (internal/timers.js:464:21)
+
+  3) pastebin page scenarios
+       Code should be equal to that we have entered to the New Paste:
+
+      AssertionError: expected '[object Promise]' to deeply equal 'git config --global user.name  "New Sheriff in Town"\n    git reset $(git commit-tree HEAD^{tree} -m "Legacy code")\n    git push origin master --force'
+      + expected - actual
+
+      -[object Promise]
+      +git config --global user.name  "New Sheriff in Town"
+      +    git reset $(git commit-tree HEAD^{tree} -m "Legacy code")
+      +    git push origin master --force
+
+      at Context.<anonymous> (test\test2.js:59:58)
+      at processImmediate (internal/timers.js:464:21)
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+   async closeAds () {
+        await this.driver.sleep(5000);
+        await this.driver.wait(until.elementLocated(By.css(".active-path"), this.explicitWaitMS));
+        await this.driver.findElement(By.css(".active-path")).click();
+		
+Не работает без слипа
